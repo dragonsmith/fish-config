@@ -76,6 +76,7 @@ function fish_user_key_bindings
    bind \e. 'history-token-search-backward'
    bind \cw 'backward-kill-path-component'
    bind \cH 'backward-kill-word'
+   bind \ch 'backward-delete-char'
 end
 
 function selfsigned
