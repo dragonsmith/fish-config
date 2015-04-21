@@ -4,6 +4,9 @@ alias gl='git log --pretty=online --abbrev-commit'
 alias s='/usr/local/bin/subl'
 alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 
+alias curldn='curl -v -o /dev/null'
+alias st='git status'
+
 set -Ux EDITOR "/usr/local/bin/subl -w"
 
 set -Ux LC_ALL 'en_US.UTF-8'
