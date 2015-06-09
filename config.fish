@@ -6,6 +6,7 @@ alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 
 alias curldn='curl -v -o /dev/null'
 alias st='git status'
+alias ds='dig +short'
 
 set -Ux EDITOR "/usr/local/bin/subl -w"
 
@@ -88,4 +89,12 @@ function selfsigned
     return 1
   end
   openssl req -new -newkey rsa:2048 -days 3650 -nodes -x509 -keyout $argv[1]-(date +%F).key -out $argv[1]-(date +%F).crt
+end
+
+function csr
+  if [ "X$argv" = "X" -o "X$argv[1]" = "X" ]
+    echo -e "CSR generation.\nYou must specify filename prefix. Exiting..."
+    return 1
+  end
+  openssl req -new -newkey rsa:2048 -nodes -keyout $argv[1]-(date +%F).key -out $argv[1]-(date +%F).csr
 end
